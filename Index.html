@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヤノクリーンサービス | 愛知の清掃・ビルメンテナンス</title>
+<meta name="description" content="愛知県を中心にハウスクリーニング・ビルメンテナンス・エアコンクリーニングなど幅広い清掃サービスを提供。現場下見・お見積り無料。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-deep: #1b4332;
+  --green-main: #2d6a4f;
+  --green-light: #52b788;
+  --green-pale: #d8f3dc;
+  --green-bg: #f0f7f2;
+  --white: #ffffff;
+  --off-white: #fafbfa;
+  --gray-50: #f7f8f7;
+  --gray-100: #eef0ef;
+  --gray-200: #dde1de;
+  --gray-400: #9ca69f;
+  --text: #1a1f1c;
+  --text-sub: #4a5450;
+  --font-en: 'Cormorant Garamond', serif;
+  --font-ja: 'Noto Sans JP', sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-ja); color: var(--text); background: var(--white); line-height: 1.9; font-size: 15px; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+.section-en { font-family: var(--font-en); font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green-main); margin-bottom: 12px; font-weight: 500; }
+.section-title { font-size: clamp(1.5rem, 3.2vw, 2rem); font-weight: 600; line-height: 1.5; letter-spacing: .04em; margin-bottom: 16px; }
+.section-desc { color: var(--text-sub); font-size: .9rem; line-height: 2; max-width: 560px; font-weight: 300; }
+.section-line { width: 40px; height: 1px; background: var(--green-main); margin-bottom: 20px; }
+
+.fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Header */
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-100); transition: box-shadow .3s; }
+.header.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,.06); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo-mark { width: 36px; height: 36px; background: var(--green-deep); border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.logo-mark svg { width: 18px; height: 18px; }
+.logo-name { font-weight: 600; font-size: .95rem; letter-spacing: .06em; line-height: 1.3; }
+.logo-name small { display: block; font-family: var(--font-en); font-size: .6rem; font-weight: 400; color: var(--gray-400); letter-spacing: 2px; }
+
+.nav { display: flex; align-items: center; gap: 36px; }
+.nav-link { font-size: .82rem; font-weight: 400; color: var(--text-sub); letter-spacing: .04em; transition: color .25s; }
+.nav-link:hover { color: var(--green-main); }
+.nav-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--green-deep); color: var(--white); padding: 10px 24px; border-radius: 4px; font-size: .82rem; font-weight: 500; letter-spacing: .04em; transition: background .25s; }
+.nav-cta:hover { background: var(--green-main); }
+
+.hamburger { display: none; width: 28px; height: 20px; position: relative; cursor: pointer; background: none; border: none; z-index: 110; }
+.hamburger span { position: absolute; left: 0; width: 100%; height: 1.5px; background: var(--text); transition: all .3s; }
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.hamburger span:nth-child(3) { bottom: 0; }
+.hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+
+.mobile-overlay { position: fixed; inset: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(20px); z-index: 105; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; opacity: 0; pointer-events: none; transition: opacity .35s; }
+.mobile-overlay.open { opacity: 1; pointer-events: all; }
+.mobile-overlay a { font-size: 1.1rem; font-weight: 400; color: var(--text); letter-spacing: .08em; }
+
+/* Hero */
+.hero { padding-top: 72px; min-height: 92vh; display: flex; align-items: center; background: var(--off-white); position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; right: -5%; top: 10%; width: 45%; height: 80%; background: var(--green-pale); border-radius: 200px 0 0 200px; opacity: .5; }
+.hero-inner { position: relative; z-index: 2; max-width: 640px; }
+.hero-en { font-family: var(--font-en); font-size: clamp(.7rem, 1.2vw, .85rem); letter-spacing: 4px; text-transform: uppercase; color: var(--green-main); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+.hero-en::before { content: ''; width: 32px; height: 1px; background: var(--green-main); }
+.hero h1 { font-size: clamp(1.8rem, 4.5vw, 3rem); font-weight: 600; line-height: 1.55; letter-spacing: .06em; margin-bottom: 28px; }
+.hero-sub { font-size: .95rem; color: var(--text-sub); line-height: 2.1; font-weight: 300; margin-bottom: 44px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--green-deep); color: var(--white); padding: 16px 36px; border-radius: 4px; font-size: .9rem; font-weight: 500; letter-spacing: .04em; border: none; cursor: pointer; transition: all .3s; }
+.btn-primary:hover { background: var(--green-main); }
+.btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); padding: 16px 36px; border-radius: 4px; font-size: .9rem; font-weight: 400; border: 1px solid var(--gray-200); cursor: pointer; transition: all .3s; letter-spacing: .04em; }
+.btn-outline:hover { border-color: var(--green-main); color: var(--green-main); }
+
+/* Badges */
+.badges { border-bottom: 1px solid var(--gray-100); padding: 40px 0; }
+.badges-row { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
+.badge-item { display: flex; align-items: center; gap: 14px; font-size: .85rem; color: var(--text-sub); }
+.badge-icon { width: 42px; height: 42px; background: var(--green-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.badge-icon svg { width: 18px; height: 18px; stroke: var(--green-main); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Services */
+.services { padding: 120px 0; }
+.services-header { text-align: center; margin-bottom: 72px; }
+.services-header .section-line { margin: 0 auto 20px; }
+.services-header .section-desc { margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.service-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 6px; overflow: hidden; transition: all .4s; }
+.service-card:hover { border-color: var(--green-pale); box-shadow: 0 8px 32px rgba(0,0,0,.06); transform: translateY(-4px); }
+
+/* Before / After Slider */
+.ba-slider { position: relative; width: 100%; height: 220px; overflow: hidden; cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+.ba-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba-before { z-index: 1; clip-path: inset(0 50% 0 0); }
+.ba-after { z-index: 0; }
+.ba-label { position: absolute; bottom: 10px; font-size: .65rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; z-index: 4; pointer-events: none; }
+.ba-label-before { left: 10px; background: rgba(0,0,0,.55); color: #fff; }
+.ba-label-after { right: 10px; background: rgba(255,255,255,.85); color: var(--text); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: var(--white); z-index: 3; transform: translateX(-50%); box-shadow: 0 0 6px rgba(0,0,0,.25); }
+.ba-handle::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; background: var(--white); border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+.ba-handle::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; z-index: 5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d6a4f' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M8 4l-6 8 6 8'/%3E%3Cpath d='M16 4l6 8-6 8'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
+
+.service-body { padding: 28px 28px 32px; }
+.service-num { font-family: var(--font-en); font-size: .7rem; color: var(--gray-400); letter-spacing: 2px; margin-bottom: 14px; }
+.service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: .04em; }
+.service-card p { font-size: .82rem; color: var(--text-sub); line-height: 1.9; font-weight: 300; }
+
+/* Strengths */
+.strengths { padding: 120px 0; background: var(--off-white); }
+.strengths-layout { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
+.strengths-left { position: sticky; top: 100px; }
+.strength-list { display: flex; flex-direction: column; }
+.strength-item { padding: 40px 0; border-bottom: 1px solid var(--gray-200); display: grid; grid-template-columns: 48px 1fr; gap: 24px; align-items: start; }
+.strength-item:first-child { padding-top: 0; }
+.strength-num { font-family: var(--font-en); font-size: 1.6rem; font-weight: 400; color: var(--green-light); line-height: 1; }
+.strength-item h3 { font-size: .95rem; font-weight: 600; margin-bottom: 8px; letter-spacing: .04em; }
+.strength-item p { font-size: .82rem; color: var(--text-sub); line-height: 1.9; font-weight: 300; }
+
+/* Area */
+.area { padding: 120px 0; }
+.area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.area-visual { background: var(--green-bg); border-radius: 8px; padding: 64px 48px; text-align: center; position: relative; overflow: hidden; }
+.area-visual::before { content: ''; position: absolute; inset: 0; border: 1px solid var(--green-pale); border-radius: 8px; }
+.area-big { font-size: 5rem; font-weight: 700; color: var(--green-pale); line-height: 1; letter-spacing: .1em; }
+.area-label { display: inline-block; margin-top: 20px; padding: 8px 24px; background: var(--white); border-radius: 100px; font-size: .82rem; color: var(--green-main); font-weight: 500; letter-spacing: .04em; }
+
+/* Contact */
+.contact { padding: 120px 0; background: var(--green-deep); color: var(--white); }
+.contact .section-en { color: var(--green-light); }
+.contact .section-line { background: var(--green-light); }
+.contact .section-desc { color: rgba(255,255,255,.65); }
+.contact-header { text-align: center; margin-bottom: 64px; }
+.contact-header .section-line { margin: 0 auto 20px; }
+.contact-header .section-desc { margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 840px; margin: 0 auto 56px; }
+.contact-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.1); border-radius: 6px; padding: 36px 24px; text-align: center; transition: background .3s; }
+.contact-card:hover { background: rgba(255,255,255,.12); }
+.contact-card-icon { width: 48px; height: 48px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.contact-card-icon svg { width: 20px; height: 20px; stroke: var(--green-light); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.contact-card-label { font-size: .7rem; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.5); margin-bottom: 10px; font-family: var(--font-en); }
+.contact-card-value { font-size: .95rem; font-weight: 500; }
+.contact-bottom { text-align: center; }
+.contact-rep { font-size: .82rem; color: rgba(255,255,255,.5); margin-bottom: 28px; letter-spacing: .04em; }
+.btn-white { display: inline-flex; align-items: center; gap: 8px; background: var(--white); color: var(--green-deep); padding: 16px 40px; border-radius: 4px; font-size: .9rem; font-weight: 600; letter-spacing: .04em; transition: all .3s; }
+.btn-white:hover { background: var(--green-pale); }
+.instagram-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px 28px; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; font-size: .82rem; color: rgba(255,255,255,.8); transition: all .3s; }
+.instagram-btn:hover { border-color: rgba(255,255,255,.5); color: var(--white); }
+.instagram-btn svg { width: 16px; height: 16px; }
+
+/* Footer */
+.footer { padding: 40px 0; border-top: 1px solid var(--gray-100); background: var(--white); }
+.footer-inner { display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-size: .72rem; color: var(--gray-400); letter-spacing: .04em; }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { font-size: .75rem; color: var(--gray-400); transition: color .25s; }
+.footer-links a:hover { color: var(--green-main); }
+
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .hamburger { display: block; }
+  .hero { min-height: auto; padding: 120px 0 80px; }
+  .hero::after { width: 70%; opacity: .3; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .strengths-layout { grid-template-columns: 1fr; gap: 48px; }
+  .strengths-left { position: static; }
+  .area-layout { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; max-width: 360px; }
+  .badges-row { gap: 28px; }
+}
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+  .footer-inner { flex-direction: column; gap: 12px; }
+  .badges-row { flex-direction: column; align-items: center; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div class="logo-name">ヤノクリーンサービス<small>Yano Clean Service</small></div>
+    </a>
+    <nav class="nav">
+      <a href="#services" class="nav-link">サービス</a>
+      <a href="#strengths" class="nav-link">選ばれる理由</a>
+      <a href="#area" class="nav-link">対応エリア</a>
+      <a href="#contact" class="nav-cta">お問い合わせ</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-overlay" id="mobileNav">
+  <a href="#services" onclick="toggleNav()">サービス</a>
+  <a href="#strengths" onclick="toggleNav()">選ばれる理由</a>
+  <a href="#area" onclick="toggleNav()">対応エリア</a>
+  <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
+</div>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner fade-in">
+      <div class="hero-en">Cleaning Professional</div>
+      <h1>プロの技術で<br>空間に清潔と信頼を。</h1>
+      <p class="hero-sub">愛知県を中心に、住宅・オフィス・学校・公共施設まで<br>幅広い清掃サービスを提供いたします。<br>現場下見・お見積りは無料です。</p>
+      <div class="hero-actions">
+        <a href="tel:09091952180" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> 電話で問い合わせる</a>
+        <a href="#services" class="btn-outline">サービスを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="badges">
+  <div class="container">
+    <div class="badges-row">
+      <div class="badge-item"><div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>見積り・下見無料</div>
+      <div class="badge-item"><div class="badge-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>年中無休</div>
+      <div class="badge-item"><div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>法人・個人対応</div>
+      <div class="badge-item"><div class="badge-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>定期契約可</div>
+    </div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header fade-in">
+      <div class="section-en">Service</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">サービス内容</h2>
+      <p class="section-desc">住宅からビル・公共施設まで、あらゆる空間をプロの技術で美しく保ちます。</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">01</div><h3>ハウスクリーニング</h3><p>キッチン・浴室・トイレ・窓まわりなど、住まい全体をプロの技術で徹底清掃いたします。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311673231_cpbbfw" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311675826_syz2dh" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">02</div><h3>エアコンクリーニング</h3><p>家庭用から業務用まで対応。分解洗浄でカビ・ホコリを除去し、快適な空気環境を実現します。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">03</div><h3>定期清掃管理</h3><p>床・ガラス・カーペットなど、定期的な清掃管理で建物の美観と衛生環境を維持します。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">04</div><h3>新築・リフォーム引渡清掃</h3><p>建築後の粉塵や汚れを徹底除去。お引渡し前の仕上げ清掃をお任せください。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">05</div><h3>窓ガラスフィルム施工</h3><p>日射調整・飛散防止・防犯など、用途に合わせた窓ガラスフィルムを施工いたします。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450070_fnvkie" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450154_bpjlvb" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">06</div><h3>トータルビルメンテナンス</h3><p>オフィス・店舗・学校・公共施設の日常清掃からビル共用部の管理まで一括対応します。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">07</div><h3>特殊清掃</h3><p>高所ガラス・外壁・白木・石材など、専門技術が求められる箇所もお任せください。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657108_vodt5t" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657175_gn2kpt" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">08</div><h3>補修工事</h3><p>木部・アルミサッシなどの補修にも対応。清掃と合わせてワンストップでご依頼いただけます。</p></div>
+      </div>
+
+      <div class="service-card fade-in">
+        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+        <div class="service-body"><div class="service-num">09</div><h3>日常清掃管理</h3><p>施設の日々の清掃を継続的にサポート。清潔で快適な環境を毎日お届けします。</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="strengths" id="strengths">
+  <div class="container">
+    <div class="strengths-layout">
+      <div class="strengths-left fade-in">
+        <div class="section-en">Why Choose Us</div>
+        <div class="section-line"></div>
+        <h2 class="section-title">ヤノクリーンサービスが<br>選ばれる理由</h2>
+        <p class="section-desc">お客様に満足していただけるサービスを提供するために、技術・対応力・信頼を大切にしています。</p>
+      </div>
+      <div class="strength-list">
+        <div class="strength-item fade-in"><div class="strength-num">01</div><div><h3>現場下見・お見積り無料</h3><p>まずは現場を確認し、最適なプランと正確なお見積りをご提示。追加料金の心配はありません。</p></div></div>
+        <div class="strength-item fade-in"><div class="strength-num">02</div><div><h3>年中無休で柔軟に対応</h3><p>定休日なし。お客様のスケジュールに合わせ、最適なタイミングで施工いたします。</p></div></div>
+        <div class="strength-item fade-in"><div class="strength-num">03</div><div><h3>住宅からビル・公共施設まで</h3><p>個人宅のハウスクリーニングから学校・公共施設のビルメンテナンスまで、規模を問わず対応します。</p></div></div>
+        <div class="strength-item fade-in"><div class="strength-num">04</div><div><h3>清掃以外もワンストップ</h3><p>窓フィルム施工や補修工事にも対応。複数業者への依頼が不要で手間がかかりません。</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="container">
+    <div class="area-layout">
+      <div class="fade-in">
+        <div class="section-en">Service Area</div>
+        <div class="section-line"></div>
+        <h2 class="section-title">対応エリア</h2>
+        <p class="section-desc" style="margin-bottom:32px">愛知県を中心に、東海エリアおよびその他の地域にも柔軟に対応いたします。まずはお気軽にご相談ください。</p>
+        <a href="tel:09091952180" class="btn-primary"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> エリア確認・ご相談</a>
+      </div>
+      <div class="area-visual fade-in"><div class="area-big">愛知</div><div class="area-label">愛知県メイン + 他エリアも対応</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-header fade-in">
+      <div class="section-en">Contact</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="section-desc">お気軽にお問い合わせください。現場下見・お見積りは無料です。</p>
+    </div>
+    <div class="contact-grid">
+      <a href="tel:09091952180" class="contact-card fade-in">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">090-9195-2180</div>
+      </a>
+      <a href="mailto:anjanai@outlook.jp" class="contact-card fade-in">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="contact-card-label">Mail</div>
+        <div class="contact-card-value">anjanai@outlook.jp</div>
+      </a>
+      <a href="https://www.instagram.com/yanocleanservice" target="_blank" rel="noopener" class="contact-card fade-in">
+        <div class="contact-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
+        <div class="contact-card-label">Instagram</div>
+        <div class="contact-card-value">@yanocleanservice</div>
+      </a>
+    </div>
+    <div class="contact-bottom fade-in">
+      <p class="contact-rep">代表　矢野 光貴 ｜ 年中無休で対応いたします</p>
+      <a href="tel:09091952180" class="btn-white"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg> 今すぐ電話する</a>
+      <br>
+      <a href="https://www.instagram.com/yanocleanservice?igsh=Zzh2MHpmaDhsanNh&utm_source=qr" target="_blank" rel="noopener" class="instagram-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram をフォロー</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-copy">&copy; 2026 ヤノクリーンサービス</div>
+    <div class="footer-links">
+      <a href="#services">サービス</a>
+      <a href="#contact">お問い合わせ</a>
+      <a href="https://www.instagram.com/yanocleanservice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
+
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+function toggleNav() {
+  hamburger.classList.toggle('active');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+}
+hamburger.addEventListener('click', toggleNav);
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+
+// Before / After Slider
+document.querySelectorAll('.ba-slider').forEach(slider => {
+  const handle = slider.querySelector('.ba-handle');
+  const before = slider.querySelector('.ba-before');
+  let dragging = false;
+
+  function update(x) {
+    const rect = slider.getBoundingClientRect();
+    let pos = (x - rect.left) / rect.width;
+    pos = Math.max(0.05, Math.min(0.95, pos));
+    const pct = pos * 100;
+    handle.style.left = pct + '%';
+    before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+  }
+
+  slider.addEventListener('mousedown', e => { dragging = true; update(e.clientX); });
+  window.addEventListener('mousemove', e => { if (dragging) { e.preventDefault(); update(e.clientX); } });
+  window.addEventListener('mouseup', () => { dragging = false; });
+
+  slider.addEventListener('touchstart', e => { dragging = true; update(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchmove', e => { if (dragging) update(e.touches[0].clientX); }, { passive: true });
+  window.addEventListener('touchend', () => { dragging = false; });
+});
+</script>
+</body>
+</html>
