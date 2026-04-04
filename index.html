@@ -167,6 +167,79 @@ img { max-width: 100%; display: block; }
 .footer-links a { font-size: .75rem; color: var(--gray-400); transition: color .25s; }
 .footer-links a:hover { color: var(--green-main); }
 
+/* Blog Page */
+.page-main, .page-blog { transition: opacity .3s ease; }
+.page-main.hidden, .page-blog.hidden { display: none; opacity: 0; }
+
+.blog-page { padding: 120px 0 80px; min-height: 100vh; background: var(--off-white); }
+.blog-header { text-align: center; margin-bottom: 56px; }
+.blog-header .section-line { margin: 0 auto 20px; }
+.blog-header .section-desc { margin: 0 auto; }
+.blog-back { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--green-main); margin-bottom: 32px; cursor: pointer; background: none; border: none; font-family: var(--font-ja); letter-spacing: .04em; transition: opacity .25s; }
+.blog-back:hover { opacity: .7; }
+.blog-back svg { width: 16px; height: 16px; }
+
+.blog-posts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 56px; }
+.blog-empty { text-align: center; padding: 80px 24px; color: var(--gray-400); font-size: .9rem; grid-column: 1 / -1; }
+
+.blog-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; transition: all .35s; }
+.blog-card:hover { border-color: var(--green-pale); box-shadow: 0 6px 24px rgba(0,0,0,.06); transform: translateY(-3px); }
+.blog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
+.blog-card-body { padding: 24px 28px 28px; }
+.blog-card-date { font-family: var(--font-en); font-size: .72rem; color: var(--gray-400); letter-spacing: 1.5px; margin-bottom: 10px; }
+.blog-card-title { font-size: 1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: .04em; line-height: 1.6; }
+.blog-card-content { font-size: .84rem; color: var(--text-sub); line-height: 1.95; font-weight: 300; white-space: pre-line; }
+.blog-card-content.truncated { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.blog-card-readmore { display: inline-block; margin-top: 12px; font-size: .78rem; color: var(--green-main); cursor: pointer; background: none; border: none; font-family: var(--font-ja); letter-spacing: .04em; }
+.blog-card-readmore:hover { text-decoration: underline; }
+
+.blog-card-actions { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--gray-100); }
+.blog-card-actions button { background: none; border: 1px solid var(--gray-200); border-radius: 4px; padding: 5px 12px; font-size: .72rem; color: var(--text-sub); font-family: var(--font-ja); cursor: pointer; transition: all .25s; }
+.blog-card-actions button:hover { border-color: var(--green-main); color: var(--green-main); }
+.blog-card-actions .btn-delete:hover { border-color: #c0392b; color: #c0392b; }
+
+/* Blog Post Form */
+.blog-admin-toggle { display: flex; justify-content: center; margin-bottom: 40px; }
+.blog-admin-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green-deep); color: var(--white); padding: 12px 28px; border-radius: 4px; font-size: .85rem; font-weight: 500; border: none; cursor: pointer; font-family: var(--font-ja); letter-spacing: .04em; transition: background .25s; }
+.blog-admin-btn:hover { background: var(--green-main); }
+
+.blog-form-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+.blog-form-overlay.open { opacity: 1; pointer-events: all; }
+.blog-form-modal { background: var(--white); border-radius: 10px; width: 90%; max-width: 560px; max-height: 90vh; overflow-y: auto; padding: 40px 36px; position: relative; transform: translateY(20px); transition: transform .3s; }
+.blog-form-overlay.open .blog-form-modal { transform: translateY(0); }
+.blog-form-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: color .2s; }
+.blog-form-close:hover { color: var(--text); }
+.blog-form-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 28px; letter-spacing: .04em; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 8px; letter-spacing: .04em; color: var(--text); }
+.form-group label .optional { font-size: .72rem; color: var(--gray-400); font-weight: 300; margin-left: 6px; }
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="password"],
+.form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--gray-200); border-radius: 4px; font-size: .88rem; font-family: var(--font-ja); line-height: 1.7; transition: border-color .25s; outline: none; background: var(--white); }
+.form-group input:focus, .form-group textarea:focus { border-color: var(--green-main); }
+.form-group textarea { min-height: 140px; resize: vertical; }
+
+.form-img-area { border: 2px dashed var(--gray-200); border-radius: 6px; padding: 28px; text-align: center; cursor: pointer; transition: border-color .25s, background .25s; position: relative; }
+.form-img-area:hover { border-color: var(--green-light); background: var(--green-bg); }
+.form-img-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.form-img-area .placeholder { color: var(--gray-400); font-size: .82rem; }
+.form-img-area .placeholder svg { display: block; margin: 0 auto 8px; width: 28px; height: 28px; stroke: var(--gray-400); }
+.form-img-preview { max-width: 100%; max-height: 200px; border-radius: 4px; margin-top: 12px; display: none; }
+
+.form-submit { width: 100%; padding: 14px; background: var(--green-deep); color: var(--white); border: none; border-radius: 4px; font-size: .9rem; font-weight: 500; font-family: var(--font-ja); letter-spacing: .04em; cursor: pointer; transition: background .25s; }
+.form-submit:hover { background: var(--green-main); }
+
+.blog-pw-gate { text-align: center; padding: 40px 24px; }
+.blog-pw-gate p { font-size: .88rem; color: var(--text-sub); margin-bottom: 20px; }
+.blog-pw-row { display: flex; gap: 10px; justify-content: center; max-width: 320px; margin: 0 auto; }
+.blog-pw-row input { flex: 1; }
+.blog-pw-row button { flex-shrink: 0; }
+
+.toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green-deep); color: var(--white); padding: 14px 28px; border-radius: 6px; font-size: .85rem; z-index: 300; transition: transform .35s ease; pointer-events: none; }
+.toast.show { transform: translateX(-50%) translateY(0); }
+
 @media (max-width: 900px) {
   .nav { display: none; }
   .hamburger { display: block; }
@@ -178,6 +251,7 @@ img { max-width: 100%; display: block; }
   .area-layout { grid-template-columns: 1fr; gap: 40px; }
   .contact-grid { grid-template-columns: 1fr; max-width: 360px; }
   .badges-row { gap: 28px; }
+  .blog-posts { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
@@ -200,6 +274,7 @@ img { max-width: 100%; display: block; }
       <a href="#services" class="nav-link">サービス</a>
       <a href="#strengths" class="nav-link">選ばれる理由</a>
       <a href="#area" class="nav-link">対応エリア</a>
+      <a href="#" class="nav-link" onclick="showBlog(); return false;">活動ブログ</a>
       <a href="#contact" class="nav-cta">お問い合わせ</a>
     </nav>
     <button class="hamburger" id="hamburger" aria-label="メニュー"><span></span><span></span><span></span></button>
@@ -209,9 +284,11 @@ img { max-width: 100%; display: block; }
   <a href="#services" onclick="toggleNav()">サービス</a>
   <a href="#strengths" onclick="toggleNav()">選ばれる理由</a>
   <a href="#area" onclick="toggleNav()">対応エリア</a>
+  <a href="#" onclick="toggleNav(); showBlog(); return false;">活動ブログ</a>
   <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
 </div>
 
+<div class="page-main" id="pageMain">
 <section class="hero">
   <div class="container">
     <div class="hero-inner fade-in">
@@ -344,10 +421,10 @@ img { max-width: 100%; display: block; }
         <div class="contact-card-label">Phone</div>
         <div class="contact-card-value">090-9195-2180</div>
       </a>
-      <a href="mailto:anjanai@outlook.jp" class="contact-card fade-in">
+      <a href="/cdn-cgi/l/email-protection#e889868289868981a8879d9c84878783c68298" class="contact-card fade-in">
         <div class="contact-card-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <div class="contact-card-label">Mail</div>
-        <div class="contact-card-value">anjanai@outlook.jp</div>
+        <div class="contact-card-value"><span class="__cf_email__" data-cfemail="b6d7d8dcd7d8d7dff6d9c3c2dad9d9dd98dcc6">[email&#160;protected]</span></div>
       </a>
       <a href="https://www.instagram.com/yanocleanservice" target="_blank" rel="noopener" class="contact-card fade-in">
         <div class="contact-card-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div>
@@ -363,19 +440,103 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
+</div><!-- end page-main -->
+
+<!-- Blog Page -->
+<div class="page-blog hidden" id="pageBlog">
+<section class="blog-page">
+  <div class="container">
+    <button class="blog-back" onclick="showMain()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+      トップに戻る
+    </button>
+    <div class="blog-header fade-in">
+      <div class="section-en">Activity Blog</div>
+      <div class="section-line"></div>
+      <h2 class="section-title">活動ブログ</h2>
+      <p class="section-desc">日々の清掃作業の記録をお届けします。</p>
+    </div>
+    <div class="blog-admin-toggle" id="blogAdminToggle">
+      <button class="blog-admin-btn" onclick="openPostForm()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14"/><path d="M5 12h14"/></svg>
+        新しい記事を投稿
+      </button>
+    </div>
+    <div class="blog-posts" id="blogPosts">
+      <div class="blog-empty">まだ記事がありません。</div>
+    </div>
+  </div>
+</section>
+</div><!-- end page-blog -->
+
+<!-- Post Form Modal -->
+<div class="blog-form-overlay" id="blogFormOverlay">
+  <div class="blog-form-modal">
+    <button class="blog-form-close" onclick="closePostForm()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
+    </button>
+
+    <!-- Password Gate -->
+    <div id="blogPwGate">
+      <div class="blog-form-title">管理者認証</div>
+      <div class="blog-pw-gate">
+        <p>投稿するにはパスワードを入力してください。</p>
+        <div class="blog-pw-row">
+          <input type="password" id="blogPwInput" placeholder="パスワード">
+          <button class="blog-admin-btn" onclick="checkBlogPw()" style="padding:10px 20px;">認証</button>
+        </div>
+        <p id="blogPwError" style="color:#c0392b; font-size:.78rem; margin-top:12px; display:none;">パスワードが違います。</p>
+      </div>
+    </div>
+
+    <!-- Post Form (hidden until auth) -->
+    <div id="blogPostForm" style="display:none;">
+      <div class="blog-form-title" id="blogFormTitle">新しい記事を投稿</div>
+      <div class="form-group">
+        <label>日付</label>
+        <input type="date" id="postDate">
+      </div>
+      <div class="form-group">
+        <label>タイトル</label>
+        <input type="text" id="postTitle" placeholder="例：エアコンクリーニング作業">
+      </div>
+      <div class="form-group">
+        <label>内容</label>
+        <textarea id="postContent" placeholder="作業内容の詳細を記入..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>画像<span class="optional">（任意）</span></label>
+        <div class="form-img-area" id="imgDropArea">
+          <input type="file" id="postImage" accept="image/*" onchange="previewImage(this)">
+          <div class="placeholder" id="imgPlaceholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+            クリックまたはドラッグで画像を選択
+          </div>
+          <img class="form-img-preview" id="imgPreview">
+        </div>
+      </div>
+      <button class="form-submit" onclick="submitPost()">投稿する</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-copy">&copy; 2026 ヤノクリーンサービス</div>
     <div class="footer-links">
       <a href="#services">サービス</a>
+      <a href="#" onclick="showBlog(); return false;">活動ブログ</a>
       <a href="#contact">お問い合わせ</a>
       <a href="https://www.instagram.com/yanocleanservice" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
 </footer>
 
-<script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
 
@@ -422,6 +583,239 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
   slider.addEventListener('touchstart', e => { dragging = true; update(e.touches[0].clientX); }, { passive: true });
   window.addEventListener('touchmove', e => { if (dragging) update(e.touches[0].clientX); }, { passive: true });
   window.addEventListener('touchend', () => { dragging = false; });
+});
+
+// ==================== Blog System (Firebase Firestore) ====================
+const BLOG_PW = 'yano2026';
+let blogAuthed = false;
+let editingId = null;
+
+// Firebase Init
+const firebaseConfig = {
+  apiKey: "AIzaSyDfvhJTe1AZW0goRmVuZGcvCgOGnN0LzI8",
+  authDomain: "yanocleanservice.firebaseapp.com",
+  projectId: "yanocleanservice",
+  storageBucket: "yanocleanservice.firebasestorage.app",
+  messagingSenderId: "365296286909",
+  appId: "1:365296286909:web:3845ef1a7514dbfc074bd4"
+};
+firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+const postsRef = db.collection('posts');
+
+async function getPosts() {
+  try {
+    const snap = await postsRef.orderBy('date', 'desc').get();
+    return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+  } catch (e) { console.error(e); return []; }
+}
+
+function showBlog() {
+  document.getElementById('pageMain').classList.add('hidden');
+  document.getElementById('pageBlog').classList.remove('hidden');
+  window.scrollTo(0, 0);
+  renderPosts();
+  document.querySelectorAll('.page-blog .fade-in:not(.is-visible)').forEach(el => observer.observe(el));
+}
+function showMain() {
+  document.getElementById('pageBlog').classList.add('hidden');
+  document.getElementById('pageMain').classList.remove('hidden');
+  window.scrollTo(0, 0);
+}
+
+async function renderPosts() {
+  const container = document.getElementById('blogPosts');
+  container.innerHTML = '<div class="blog-empty">読み込み中...</div>';
+  const posts = await getPosts();
+  if (posts.length === 0) {
+    container.innerHTML = '<div class="blog-empty">まだ記事がありません。</div>';
+    return;
+  }
+  container.innerHTML = posts.map(p => {
+    const dateStr = new Date(p.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+    const imgHtml = p.image ? '<img class="blog-card-img" src="' + p.image + '" alt="" loading="lazy">' : '';
+    const adminBtns = blogAuthed ? '<div class="blog-card-actions"><button onclick="editPost(\'' + p.id + '\')">編集</button><button class="btn-delete" onclick="deletePost(\'' + p.id + '\')">削除</button></div>' : '';
+    return '<div class="blog-card">' + imgHtml +
+      '<div class="blog-card-body">' +
+        '<div class="blog-card-date">' + dateStr + '</div>' +
+        '<div class="blog-card-title">' + escHtml(p.title) + '</div>' +
+        '<div class="blog-card-content truncated" id="content-' + p.id + '">' + escHtml(p.content) + '</div>' +
+        '<button class="blog-card-readmore" onclick="toggleReadMore(this, \'' + p.id + '\')">もっと読む</button>' +
+        adminBtns +
+      '</div></div>';
+  }).join('');
+}
+
+function toggleReadMore(btn, id) {
+  const el = document.getElementById('content-' + id);
+  const isTrunc = el.classList.contains('truncated');
+  el.classList.toggle('truncated');
+  btn.textContent = isTrunc ? '閉じる' : 'もっと読む';
+}
+
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function openPostForm() {
+  editingId = null;
+  document.getElementById('blogFormOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if (blogAuthed) {
+    document.getElementById('blogPwGate').style.display = 'none';
+    document.getElementById('blogPostForm').style.display = 'block';
+    document.getElementById('blogFormTitle').textContent = '新しい記事を投稿';
+    resetForm();
+  } else {
+    document.getElementById('blogPwGate').style.display = 'block';
+    document.getElementById('blogPostForm').style.display = 'none';
+  }
+}
+function closePostForm() {
+  document.getElementById('blogFormOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  resetForm();
+}
+
+function checkBlogPw() {
+  const input = document.getElementById('blogPwInput');
+  if (input.value === BLOG_PW) {
+    blogAuthed = true;
+    document.getElementById('blogPwGate').style.display = 'none';
+    document.getElementById('blogPostForm').style.display = 'block';
+    document.getElementById('blogPwError').style.display = 'none';
+    input.value = '';
+    renderPosts();
+  } else {
+    document.getElementById('blogPwError').style.display = 'block';
+  }
+}
+document.getElementById('blogPwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkBlogPw(); });
+
+// Image compression
+function compressImage(file, maxW, quality) {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let w = img.width, h = img.height;
+        if (w > maxW) { h = (maxW / w) * h; w = maxW; }
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality));
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function previewImage(input) {
+  const file = input.files[0];
+  const preview = document.getElementById('imgPreview');
+  const placeholder = document.getElementById('imgPlaceholder');
+  if (file) {
+    compressImage(file, 800, 0.7).then(dataUrl => {
+      preview.src = dataUrl;
+      preview.style.display = 'block';
+      placeholder.style.display = 'none';
+    });
+  }
+}
+
+function resetForm() {
+  document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
+  document.getElementById('postTitle').value = '';
+  document.getElementById('postContent').value = '';
+  document.getElementById('postImage').value = '';
+  document.getElementById('imgPreview').style.display = 'none';
+  document.getElementById('imgPlaceholder').style.display = 'block';
+  document.getElementById('imgPreview').src = '';
+  editingId = null;
+}
+
+async function submitPost() {
+  const date = document.getElementById('postDate').value;
+  const title = document.getElementById('postTitle').value.trim();
+  const content = document.getElementById('postContent').value.trim();
+  const preview = document.getElementById('imgPreview');
+  const image = preview.style.display !== 'none' ? preview.src : '';
+
+  if (!date || !title || !content) {
+    showToast('日付・タイトル・内容は必須です');
+    return;
+  }
+
+  const submitBtn = document.querySelector('.form-submit');
+  submitBtn.textContent = '送信中...';
+  submitBtn.disabled = true;
+
+  try {
+    if (editingId) {
+      const updateData = { date, title, content };
+      if (image) updateData.image = image;
+      else if (!document.getElementById('postImage').files.length) { /* keep existing */ }
+      else updateData.image = '';
+      await postsRef.doc(editingId).update(updateData);
+      showToast('記事を更新しました');
+    } else {
+      await postsRef.add({ date, title, content, image, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+      showToast('記事を投稿しました');
+    }
+    closePostForm();
+    renderPosts();
+  } catch (e) {
+    console.error(e);
+    showToast('エラーが発生しました');
+  } finally {
+    submitBtn.textContent = '投稿する';
+    submitBtn.disabled = false;
+  }
+}
+
+async function editPost(id) {
+  try {
+    const doc = await postsRef.doc(id).get();
+    if (!doc.exists) return;
+    const post = doc.data();
+    editingId = id;
+    openPostForm();
+    document.getElementById('blogFormTitle').textContent = '記事を編集';
+    document.getElementById('postDate').value = post.date;
+    document.getElementById('postTitle').value = post.title;
+    document.getElementById('postContent').value = post.content;
+    if (post.image) {
+      document.getElementById('imgPreview').src = post.image;
+      document.getElementById('imgPreview').style.display = 'block';
+      document.getElementById('imgPlaceholder').style.display = 'none';
+    }
+  } catch (e) { console.error(e); }
+}
+
+async function deletePost(id) {
+  if (!confirm('この記事を削除しますか？')) return;
+  try {
+    await postsRef.doc(id).delete();
+    renderPosts();
+    showToast('記事を削除しました');
+  } catch (e) { console.error(e); showToast('削除に失敗しました'); }
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
+
+document.getElementById('blogFormOverlay').addEventListener('click', e => {
+  if (e.target === e.currentTarget) closePostForm();
 });
 </script>
 </body>
