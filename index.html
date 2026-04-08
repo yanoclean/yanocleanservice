@@ -32,16 +32,12 @@ body { font-family: var(--font-ja); color: var(--text); background: var(--white)
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
 .section-en { font-family: var(--font-en); font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; color: var(--green-main); margin-bottom: 12px; font-weight: 500; }
 .section-title { font-size: clamp(1.5rem, 3.2vw, 2rem); font-weight: 600; line-height: 1.5; letter-spacing: .04em; margin-bottom: 16px; }
 .section-desc { color: var(--text-sub); font-size: .9rem; line-height: 2; max-width: 560px; font-weight: 300; }
 .section-line { width: 40px; height: 1px; background: var(--green-main); margin-bottom: 20px; }
-
 .fade-in { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
 .fade-in.is-visible { opacity: 1; transform: translateY(0); }
-
-/* Header */
 .header { position: fixed; top: 0; left: 0; right: 0; z-index: 110; background: rgba(255,255,255,.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-100); transition: box-shadow .3s; }
 .header.scrolled { box-shadow: 0 1px 12px rgba(0,0,0,.06); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
@@ -50,13 +46,11 @@ img { max-width: 100%; display: block; }
 .logo-mark svg { width: 18px; height: 18px; }
 .logo-name { font-weight: 600; font-size: .95rem; letter-spacing: .06em; line-height: 1.3; }
 .logo-name small { display: block; font-family: var(--font-en); font-size: .6rem; font-weight: 400; color: var(--gray-400); letter-spacing: 2px; }
-
 .nav { display: flex; align-items: center; gap: 36px; }
 .nav-link { font-size: .82rem; font-weight: 400; color: var(--text-sub); letter-spacing: .04em; transition: color .25s; }
 .nav-link:hover { color: var(--green-main); }
 .nav-cta { display: inline-flex; align-items: center; gap: 6px; background: var(--green-deep); color: var(--white); padding: 10px 24px; border-radius: 4px; font-size: .82rem; font-weight: 500; letter-spacing: .04em; transition: background .25s; }
 .nav-cta:hover { background: var(--green-main); }
-
 .hamburger { display: none; width: 28px; height: 20px; position: relative; cursor: pointer; background: none; border: none; z-index: 110; }
 .hamburger span { position: absolute; left: 0; width: 100%; height: 1.5px; background: var(--text); transition: all .3s; }
 .hamburger span:nth-child(1) { top: 0; }
@@ -65,12 +59,9 @@ img { max-width: 100%; display: block; }
 .hamburger.active span:nth-child(1) { top: 50%; transform: translateY(-50%) rotate(45deg); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
-
 .mobile-overlay { position: fixed; inset: 0; background: rgba(255,255,255,.98); backdrop-filter: blur(20px); z-index: 105; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 36px; opacity: 0; pointer-events: none; transition: opacity .35s; }
 .mobile-overlay.open { opacity: 1; pointer-events: all; }
 .mobile-overlay a { font-size: 1.1rem; font-weight: 400; color: var(--text); letter-spacing: .08em; }
-
-/* Hero */
 .hero { padding-top: 72px; min-height: 92vh; display: flex; align-items: center; background: var(--off-white); position: relative; overflow: hidden; }
 .hero::after { content: ''; position: absolute; right: -5%; top: 10%; width: 45%; height: 80%; background: var(--green-pale); border-radius: 200px 0 0 200px; opacity: .5; }
 .hero-inner { position: relative; z-index: 2; max-width: 640px; }
@@ -83,41 +74,40 @@ img { max-width: 100%; display: block; }
 .btn-primary:hover { background: var(--green-main); }
 .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--text); padding: 16px 36px; border-radius: 4px; font-size: .9rem; font-weight: 400; border: 1px solid var(--gray-200); cursor: pointer; transition: all .3s; letter-spacing: .04em; }
 .btn-outline:hover { border-color: var(--green-main); color: var(--green-main); }
-
-/* Badges */
 .badges { border-bottom: 1px solid var(--gray-100); padding: 40px 0; }
 .badges-row { display: flex; justify-content: center; gap: 56px; flex-wrap: wrap; }
 .badge-item { display: flex; align-items: center; gap: 14px; font-size: .85rem; color: var(--text-sub); }
 .badge-icon { width: 42px; height: 42px; background: var(--green-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .badge-icon svg { width: 18px; height: 18px; stroke: var(--green-main); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-
-/* Services */
 .services { padding: 120px 0; }
 .services-header { text-align: center; margin-bottom: 72px; }
 .services-header .section-line { margin: 0 auto 20px; }
 .services-header .section-desc { margin: 0 auto; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.service-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 6px; overflow: hidden; transition: all .4s; }
-.service-card:hover { border-color: var(--green-pale); box-shadow: 0 8px 32px rgba(0,0,0,.06); transform: translateY(-4px); }
-
+/* Service Accordion */
+.services-list { display: flex; flex-direction: column; gap: 12px; }
+.service-accordion { background: var(--white); border: 1px solid var(--gray-100); border-radius: 6px; overflow: hidden; transition: border-color .3s, box-shadow .3s; }
+.service-accordion.open { border-color: var(--green-pale); box-shadow: 0 4px 20px rgba(0,0,0,.05); }
+.service-accordion-header { display: flex; align-items: center; gap: 20px; padding: 24px 28px; cursor: pointer; user-select: none; -webkit-user-select: none; transition: background .2s; }
+.service-accordion-header:hover { background: var(--gray-50); }
+.service-accordion-header .service-num { font-family: var(--font-en); font-size: 1.1rem; color: var(--green-light); font-weight: 400; flex-shrink: 0; width: 32px; }
+.service-accordion-header h3 { font-size: 1rem; font-weight: 600; letter-spacing: .04em; margin: 0; flex: 1; }
+.service-accordion-arrow { width: 20px; height: 20px; flex-shrink: 0; transition: transform .35s ease; color: var(--gray-400); }
+.service-accordion.open .service-accordion-arrow { transform: rotate(180deg); color: var(--green-main); }
+.service-accordion-body { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+.service-accordion-body-inner { padding: 0 28px 28px; }
+.service-accordion-desc { font-size: .84rem; color: var(--text-sub); line-height: 1.9; font-weight: 300; margin-bottom: 20px; }
+.ba-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 /* Before / After Slider */
-.ba-slider { position: relative; width: 100%; height: 220px; overflow: hidden; cursor: ew-resize; user-select: none; -webkit-user-select: none; }
+.ba-slider { position: relative; width: 100%; height: 220px; overflow: hidden; cursor: ew-resize; user-select: none; -webkit-user-select: none; border-radius: 6px; }
 .ba-slider img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 .ba-before { z-index: 1; clip-path: inset(0 50% 0 0); }
 .ba-after { z-index: 0; }
-.ba-label { position: absolute; bottom: 10px; font-size: .65rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; z-index: 4; pointer-events: none; }
-.ba-label-before { left: 10px; background: rgba(0,0,0,.55); color: #fff; }
-.ba-label-after { right: 10px; background: rgba(255,255,255,.85); color: var(--text); }
+.ba-label { position: absolute; bottom: 8px; font-size: .6rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; z-index: 4; pointer-events: none; }
+.ba-label-before { left: 8px; background: rgba(0,0,0,.55); color: #fff; }
+.ba-label-after { right: 8px; background: rgba(255,255,255,.85); color: var(--text); }
 .ba-handle { position: absolute; top: 0; bottom: 0; left: 50%; width: 3px; background: var(--white); z-index: 3; transform: translateX(-50%); box-shadow: 0 0 6px rgba(0,0,0,.25); }
-.ba-handle::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 36px; height: 36px; background: var(--white); border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
-.ba-handle::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 16px; height: 16px; z-index: 5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d6a4f' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M8 4l-6 8 6 8'/%3E%3Cpath d='M16 4l6 8-6 8'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
-
-.service-body { padding: 28px 28px 32px; }
-.service-num { font-family: var(--font-en); font-size: .7rem; color: var(--gray-400); letter-spacing: 2px; margin-bottom: 14px; }
-.service-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 10px; letter-spacing: .04em; }
-.service-card p { font-size: .82rem; color: var(--text-sub); line-height: 1.9; font-weight: 300; }
-
-/* Strengths */
+.ba-handle::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 32px; height: 32px; background: var(--white); border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,.2); }
+.ba-handle::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 14px; height: 14px; z-index: 5; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232d6a4f' stroke-width='2.5' stroke-linecap='round'%3E%3Cpath d='M8 4l-6 8 6 8'/%3E%3Cpath d='M16 4l6 8-6 8'/%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
 .strengths { padding: 120px 0; background: var(--off-white); }
 .strengths-layout { display: grid; grid-template-columns: 380px 1fr; gap: 80px; align-items: start; }
 .strengths-left { position: sticky; top: 100px; }
@@ -127,16 +117,12 @@ img { max-width: 100%; display: block; }
 .strength-num { font-family: var(--font-en); font-size: 1.6rem; font-weight: 400; color: var(--green-light); line-height: 1; }
 .strength-item h3 { font-size: .95rem; font-weight: 600; margin-bottom: 8px; letter-spacing: .04em; }
 .strength-item p { font-size: .82rem; color: var(--text-sub); line-height: 1.9; font-weight: 300; }
-
-/* Area */
 .area { padding: 120px 0; }
 .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .area-visual { background: var(--green-bg); border-radius: 8px; padding: 64px 48px; text-align: center; position: relative; overflow: hidden; }
 .area-visual::before { content: ''; position: absolute; inset: 0; border: 1px solid var(--green-pale); border-radius: 8px; }
 .area-big { font-size: 5rem; font-weight: 700; color: var(--green-pale); line-height: 1; letter-spacing: .1em; }
 .area-label { display: inline-block; margin-top: 20px; padding: 8px 24px; background: var(--white); border-radius: 100px; font-size: .82rem; color: var(--green-main); font-weight: 500; letter-spacing: .04em; }
-
-/* Contact */
 .contact { padding: 120px 0; background: var(--green-deep); color: var(--white); }
 .contact .section-en { color: var(--green-light); }
 .contact .section-line { background: var(--green-light); }
@@ -158,19 +144,14 @@ img { max-width: 100%; display: block; }
 .instagram-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; padding: 12px 28px; border: 1px solid rgba(255,255,255,.2); border-radius: 4px; font-size: .82rem; color: rgba(255,255,255,.8); transition: all .3s; }
 .instagram-btn:hover { border-color: rgba(255,255,255,.5); color: var(--white); }
 .instagram-btn svg { width: 16px; height: 16px; }
-
-/* Footer */
 .footer { padding: 40px 0; border-top: 1px solid var(--gray-100); background: var(--white); }
 .footer-inner { display: flex; justify-content: space-between; align-items: center; }
 .footer-copy { font-size: .72rem; color: var(--gray-400); letter-spacing: .04em; }
 .footer-links { display: flex; gap: 28px; }
 .footer-links a { font-size: .75rem; color: var(--gray-400); transition: color .25s; }
 .footer-links a:hover { color: var(--green-main); }
-
-/* Blog Page */
 .page-main, .page-blog { transition: opacity .3s ease; }
 .page-main.hidden, .page-blog.hidden { display: none; opacity: 0; }
-
 .blog-page { padding: 120px 0 80px; min-height: 100vh; background: var(--off-white); }
 .blog-header { text-align: center; margin-bottom: 56px; }
 .blog-header .section-line { margin: 0 auto 20px; }
@@ -178,10 +159,8 @@ img { max-width: 100%; display: block; }
 .blog-back { display: inline-flex; align-items: center; gap: 6px; font-size: .82rem; color: var(--green-main); margin-bottom: 32px; cursor: pointer; background: none; border: none; font-family: var(--font-ja); letter-spacing: .04em; transition: opacity .25s; }
 .blog-back:hover { opacity: .7; }
 .blog-back svg { width: 16px; height: 16px; }
-
 .blog-posts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-bottom: 56px; }
 .blog-empty { text-align: center; padding: 80px 24px; color: var(--gray-400); font-size: .9rem; grid-column: 1 / -1; }
-
 .blog-card { background: var(--white); border: 1px solid var(--gray-100); border-radius: 8px; overflow: hidden; transition: all .35s; }
 .blog-card:hover { border-color: var(--green-pale); box-shadow: 0 6px 24px rgba(0,0,0,.06); transform: translateY(-3px); }
 .blog-card-img { width: 100%; height: 200px; object-fit: cover; display: block; }
@@ -198,17 +177,13 @@ img { max-width: 100%; display: block; }
 .blog-card-content.truncated { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .blog-card-readmore { display: inline-block; margin-top: 12px; font-size: .78rem; color: var(--green-main); cursor: pointer; background: none; border: none; font-family: var(--font-ja); letter-spacing: .04em; }
 .blog-card-readmore:hover { text-decoration: underline; }
-
 .blog-card-actions { display: flex; gap: 8px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--gray-100); }
 .blog-card-actions button { background: none; border: 1px solid var(--gray-200); border-radius: 4px; padding: 5px 12px; font-size: .72rem; color: var(--text-sub); font-family: var(--font-ja); cursor: pointer; transition: all .25s; }
 .blog-card-actions button:hover { border-color: var(--green-main); color: var(--green-main); }
 .blog-card-actions .btn-delete:hover { border-color: #c0392b; color: #c0392b; }
-
-/* Blog Post Form */
 .blog-admin-toggle { display: flex; justify-content: center; margin-bottom: 40px; }
 .blog-admin-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--green-deep); color: var(--white); padding: 12px 28px; border-radius: 4px; font-size: .85rem; font-weight: 500; border: none; cursor: pointer; font-family: var(--font-ja); letter-spacing: .04em; transition: background .25s; }
 .blog-admin-btn:hover { background: var(--green-main); }
-
 .blog-form-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); backdrop-filter: blur(4px); z-index: 200; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
 .blog-form-overlay.open { opacity: 1; pointer-events: all; }
 .blog-form-modal { background: var(--white); border-radius: 10px; width: 90%; max-width: 560px; max-height: 90vh; overflow-y: auto; padding: 40px 36px; position: relative; transform: translateY(20px); transition: transform .3s; }
@@ -216,17 +191,12 @@ img { max-width: 100%; display: block; }
 .blog-form-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: var(--gray-400); transition: color .2s; }
 .blog-form-close:hover { color: var(--text); }
 .blog-form-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 28px; letter-spacing: .04em; }
-
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; font-size: .82rem; font-weight: 500; margin-bottom: 8px; letter-spacing: .04em; color: var(--text); }
 .form-group label .optional { font-size: .72rem; color: var(--gray-400); font-weight: 300; margin-left: 6px; }
-.form-group input[type="text"],
-.form-group input[type="date"],
-.form-group input[type="password"],
-.form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--gray-200); border-radius: 4px; font-size: .88rem; font-family: var(--font-ja); line-height: 1.7; transition: border-color .25s; outline: none; background: var(--white); }
+.form-group input[type="text"], .form-group input[type="date"], .form-group input[type="password"], .form-group textarea { width: 100%; padding: 12px 14px; border: 1px solid var(--gray-200); border-radius: 4px; font-size: .88rem; font-family: var(--font-ja); line-height: 1.7; transition: border-color .25s; outline: none; background: var(--white); }
 .form-group input:focus, .form-group textarea:focus { border-color: var(--green-main); }
 .form-group textarea { min-height: 140px; resize: vertical; }
-
 .form-img-area { border: 2px dashed var(--gray-200); border-radius: 6px; padding: 28px; text-align: center; cursor: pointer; transition: border-color .25s, background .25s; position: relative; }
 .form-img-area:hover { border-color: var(--green-light); background: var(--green-bg); }
 .form-img-area input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
@@ -238,25 +208,21 @@ img { max-width: 100%; display: block; }
 .form-img-previews .img-thumb img { width: 100%; height: 100%; object-fit: cover; }
 .form-img-previews .img-thumb .img-remove { position: absolute; top: 4px; right: 4px; width: 22px; height: 22px; background: rgba(0,0,0,.6); color: #fff; border: none; border-radius: 50%; font-size: 14px; line-height: 22px; text-align: center; cursor: pointer; }
 .form-img-previews .img-thumb .img-remove:hover { background: #c0392b; }
-
 .form-submit { width: 100%; padding: 14px; background: var(--green-deep); color: var(--white); border: none; border-radius: 4px; font-size: .9rem; font-weight: 500; font-family: var(--font-ja); letter-spacing: .04em; cursor: pointer; transition: background .25s; }
 .form-submit:hover { background: var(--green-main); }
-
 .blog-pw-gate { text-align: center; padding: 40px 24px; }
 .blog-pw-gate p { font-size: .88rem; color: var(--text-sub); margin-bottom: 20px; }
 .blog-pw-row { display: flex; gap: 10px; justify-content: center; max-width: 320px; margin: 0 auto; }
 .blog-pw-row input { flex: 1; }
 .blog-pw-row button { flex-shrink: 0; }
-
 .toast { position: fixed; bottom: 32px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--green-deep); color: var(--white); padding: 14px 28px; border-radius: 6px; font-size: .85rem; z-index: 300; transition: transform .35s ease; pointer-events: none; }
 .toast.show { transform: translateX(-50%) translateY(0); }
-
 @media (max-width: 900px) {
   .nav { display: none; }
   .hamburger { display: block; }
   .hero { min-height: auto; padding: 120px 0 80px; }
   .hero::after { width: 70%; opacity: .3; }
-  .services-grid { grid-template-columns: 1fr 1fr; }
+  .ba-grid { grid-template-columns: 1fr 1fr; }
   .strengths-layout { grid-template-columns: 1fr; gap: 48px; }
   .strengths-left { position: static; }
   .area-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -265,7 +231,7 @@ img { max-width: 100%; display: block; }
   .blog-posts { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .services-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
   .hero-actions { flex-direction: column; }
   .btn-primary, .btn-outline { width: 100%; justify-content: center; }
   .footer-inner { flex-direction: column; gap: 12px; }
@@ -274,7 +240,6 @@ img { max-width: 100%; display: block; }
 </style>
 </head>
 <body>
-
 <header class="header" id="header">
   <div class="container header-inner">
     <a href="#" class="logo">
@@ -298,7 +263,6 @@ img { max-width: 100%; display: block; }
   <a href="#" onclick="toggleNav(); showBlog(); return false;">活動ブログ</a>
   <a href="#contact" onclick="toggleNav()">お問い合わせ</a>
 </div>
-
 <div class="page-main" id="pageMain">
 <section class="hero">
   <div class="container">
@@ -313,7 +277,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-
 <div class="badges">
   <div class="container">
     <div class="badges-row">
@@ -324,7 +287,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </div>
-
 <section class="services" id="services">
   <div class="container">
     <div class="services-header fade-in">
@@ -333,57 +295,136 @@ img { max-width: 100%; display: block; }
       <h2 class="section-title">サービス内容</h2>
       <p class="section-desc">住宅からビル・公共施設まで、あらゆる空間をプロの技術で美しく保ちます。</p>
     </div>
-    <div class="services-grid">
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">01</div><h3>ハウスクリーニング</h3><p>キッチン・浴室・トイレ・窓まわりなど、住まい全体をプロの技術で徹底清掃いたします。</p></div>
+    <div class="services-list">
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">01</div><h3>ハウスクリーニング</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">キッチン・浴室・トイレ・窓まわりなど、住まい全体をプロの技術で徹底清掃いたします。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311673231_cpbbfw" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311675826_syz2dh" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">02</div><h3>エアコンクリーニング</h3><p>家庭用から業務用まで対応。分解洗浄でカビ・ホコリを除去し、快適な空気環境を実現します。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">02</div><h3>エアコンクリーニング</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">家庭用から業務用まで対応。分解洗浄でカビ・ホコリを除去し、快適な空気環境を実現します。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311673231_cpbbfw" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311675826_syz2dh" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">03</div><h3>定期清掃管理</h3><p>床・ガラス・カーペットなど、定期的な清掃管理で建物の美観と衛生環境を維持します。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">03</div><h3>定期清掃管理</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">床・ガラス・カーペットなど、定期的な清掃管理で建物の美観と衛生環境を維持します。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">04</div><h3>新築・リフォーム引渡清掃</h3><p>建築後の粉塵や汚れを徹底除去。お引渡し前の仕上げ清掃をお任せください。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">04</div><h3>新築・リフォーム引渡清掃</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">建築後の粉塵や汚れを徹底除去。お引渡し前の仕上げ清掃をお任せください。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">05</div><h3>窓ガラスフィルム施工</h3><p>日射調整・飛散防止・防犯など、用途に合わせた窓ガラスフィルムを施工いたします。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">05</div><h3>窓ガラスフィルム施工</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">日射調整・飛散防止・防犯など、用途に合わせた窓ガラスフィルムを施工いたします。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450070_fnvkie" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450154_bpjlvb" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">06</div><h3>トータルビルメンテナンス</h3><p>オフィス・店舗・学校・公共施設の日常清掃からビル共用部の管理まで一括対応します。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">06</div><h3>トータルビルメンテナンス</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">オフィス・店舗・学校・公共施設の日常清掃からビル共用部の管理まで一括対応します。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450070_fnvkie" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775315450154_bpjlvb" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">07</div><h3>特殊清掃</h3><p>高所ガラス・外壁・白木・石材など、専門技術が求められる箇所もお任せください。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">07</div><h3>特殊清掃</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">高所ガラス・外壁・白木・石材など、専門技術が求められる箇所もお任せください。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657108_vodt5t" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657175_gn2kpt" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">08</div><h3>補修工事</h3><p>木部・アルミサッシなどの補修にも対応。清掃と合わせてワンストップでご依頼いただけます。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">08</div><h3>補修工事</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">木部・アルミサッシなどの補修にも対応。清掃と合わせてワンストップでご依頼いただけます。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657108_vodt5t" alt="Before"><img class="ba-after" src="https://res.cloudinary.com/dc4tp9zto/image/upload/f_auto,q_auto/1775311657175_gn2kpt" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
-      <div class="service-card fade-in">
-        <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
-        <div class="service-body"><div class="service-num">09</div><h3>日常清掃管理</h3><p>施設の日々の清掃を継続的にサポート。清潔で快適な環境を毎日お届けします。</p></div>
+      <div class="service-accordion fade-in">
+        <div class="service-accordion-header" onclick="toggleAccordion(this)">
+          <div class="service-num">09</div><h3>日常清掃管理</h3>
+          <svg class="service-accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="service-accordion-body"><div class="service-accordion-body-inner">
+          <p class="service-accordion-desc">施設の日々の清掃を継続的にサポート。清潔で快適な環境を毎日お届けします。</p>
+          <div class="ba-grid">
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+1" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+1" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+2" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+2" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+            <div class="ba-slider"><img class="ba-before" src="https://placehold.co/600x440/d4d4d4/888?text=BEFORE+3" alt="Before"><img class="ba-after" src="https://placehold.co/600x440/c8e6c9/2d6a4f?text=AFTER+3" alt="After"><div class="ba-handle"></div><span class="ba-label ba-label-before">Before</span><span class="ba-label ba-label-after">After</span></div>
+          </div>
+        </div></div>
       </div>
-
     </div>
   </div>
 </section>
-
 <section class="strengths" id="strengths">
   <div class="container">
     <div class="strengths-layout">
@@ -402,7 +443,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-
 <section class="area" id="area">
   <div class="container">
     <div class="area-layout">
@@ -417,7 +457,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-
 <section class="contact" id="contact">
   <div class="container">
     <div class="contact-header fade-in">
@@ -451,9 +490,7 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-</div><!-- end page-main -->
-
-<!-- Blog Page -->
+</div>
 <div class="page-blog hidden" id="pageBlog">
 <section class="blog-page">
   <div class="container">
@@ -478,16 +515,12 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-</div><!-- end page-blog -->
-
-<!-- Post Form Modal -->
+</div>
 <div class="blog-form-overlay" id="blogFormOverlay">
   <div class="blog-form-modal">
     <button class="blog-form-close" onclick="closePostForm()">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18"/><path d="M6 6l12 12"/></svg>
     </button>
-
-    <!-- Password Gate -->
     <div id="blogPwGate">
       <div class="blog-form-title">管理者認証</div>
       <div class="blog-pw-gate">
@@ -499,22 +532,11 @@ img { max-width: 100%; display: block; }
         <p id="blogPwError" style="color:#c0392b; font-size:.78rem; margin-top:12px; display:none;">パスワードが違います。</p>
       </div>
     </div>
-
-    <!-- Post Form (hidden until auth) -->
     <div id="blogPostForm" style="display:none;">
       <div class="blog-form-title" id="blogFormTitle">新しい記事を投稿</div>
-      <div class="form-group">
-        <label>日付</label>
-        <input type="date" id="postDate">
-      </div>
-      <div class="form-group">
-        <label>タイトル</label>
-        <input type="text" id="postTitle" placeholder="例：エアコンクリーニング作業">
-      </div>
-      <div class="form-group">
-        <label>内容</label>
-        <textarea id="postContent" placeholder="作業内容の詳細を記入..."></textarea>
-      </div>
+      <div class="form-group"><label>日付</label><input type="date" id="postDate"></div>
+      <div class="form-group"><label>タイトル</label><input type="text" id="postTitle" placeholder="例：エアコンクリーニング作業"></div>
+      <div class="form-group"><label>内容</label><textarea id="postContent" placeholder="作業内容の詳細を記入..."></textarea></div>
       <div class="form-group">
         <label>画像<span class="optional">（任意・最大6枚）</span></label>
         <div class="form-img-area" id="imgDropArea">
@@ -530,9 +552,7 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </div>
-
 <div class="toast" id="toast"></div>
-
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-copy">&copy; 2026 ヤノクリーンサービス</div>
@@ -544,13 +564,11 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </footer>
-
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
 <script>
 const header = document.getElementById('header');
 window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 40));
-
 const hamburger = document.getElementById('hamburger');
 const mobileNav = document.getElementById('mobileNav');
 function toggleNav() {
@@ -559,12 +577,10 @@ function toggleNav() {
   document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
 }
 hamburger.addEventListener('click', toggleNav);
-
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); observer.unobserve(e.target); }});
 }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
@@ -572,12 +588,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// Accordion
+function toggleAccordion(headerEl) {
+  const accordion = headerEl.parentElement;
+  const body = accordion.querySelector('.service-accordion-body');
+  const isOpen = accordion.classList.contains('open');
+  if (isOpen) {
+    body.style.maxHeight = null;
+    accordion.classList.remove('open');
+  } else {
+    accordion.classList.add('open');
+    body.style.maxHeight = body.scrollHeight + 'px';
+    initSlidersIn(accordion);
+  }
+}
+
 // Before / After Slider
-document.querySelectorAll('.ba-slider').forEach(slider => {
+function initSlider(slider) {
+  if (slider.dataset.init) return;
+  slider.dataset.init = '1';
   const handle = slider.querySelector('.ba-handle');
   const before = slider.querySelector('.ba-before');
   let dragging = false;
-
   function update(x) {
     const rect = slider.getBoundingClientRect();
     let pos = (x - rect.left) / rect.width;
@@ -586,22 +618,21 @@ document.querySelectorAll('.ba-slider').forEach(slider => {
     handle.style.left = pct + '%';
     before.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
   }
-
   slider.addEventListener('mousedown', e => { dragging = true; update(e.clientX); });
   window.addEventListener('mousemove', e => { if (dragging) { e.preventDefault(); update(e.clientX); } });
   window.addEventListener('mouseup', () => { dragging = false; });
-
   slider.addEventListener('touchstart', e => { dragging = true; update(e.touches[0].clientX); }, { passive: true });
   window.addEventListener('touchmove', e => { if (dragging) update(e.touches[0].clientX); }, { passive: true });
   window.addEventListener('touchend', () => { dragging = false; });
-});
+}
+function initSlidersIn(container) {
+  container.querySelectorAll('.ba-slider').forEach(initSlider);
+}
 
-// ==================== Blog System (Firebase Firestore) ====================
+// Blog System
 const BLOG_PW = '315';
 let blogAuthed = false;
 let editingId = null;
-
-// Firebase Init
 const firebaseConfig = {
   apiKey: "AIzaSyDfvhJTe1AZW0goRmVuZGcvCgOGnN0LzI8",
   authDomain: "yanocleanservice.firebaseapp.com",
@@ -613,19 +644,14 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 const postsRef = db.collection('posts');
-
 async function getPosts() {
-  try {
-    const snap = await postsRef.orderBy('date', 'desc').get();
-    return snap.docs.map(d => ({ id: d.id, ...d.data() }));
-  } catch (e) { console.error(e); return []; }
+  try { const snap = await postsRef.orderBy('date', 'desc').get(); return snap.docs.map(d => ({ id: d.id, ...d.data() })); }
+  catch (e) { console.error(e); return []; }
 }
-
 function showBlog() {
   document.getElementById('pageMain').classList.add('hidden');
   document.getElementById('pageBlog').classList.remove('hidden');
-  window.scrollTo(0, 0);
-  renderPosts();
+  window.scrollTo(0, 0); renderPosts();
   document.querySelectorAll('.page-blog .fade-in:not(.is-visible)').forEach(el => observer.observe(el));
 }
 function showMain() {
@@ -633,237 +659,85 @@ function showMain() {
   document.getElementById('pageMain').classList.remove('hidden');
   window.scrollTo(0, 0);
 }
-
 async function renderPosts() {
   const container = document.getElementById('blogPosts');
   container.innerHTML = '<div class="blog-empty">読み込み中...</div>';
   const posts = await getPosts();
-  if (posts.length === 0) {
-    container.innerHTML = '<div class="blog-empty">まだ記事がありません。</div>';
-    return;
-  }
+  if (posts.length === 0) { container.innerHTML = '<div class="blog-empty">まだ記事がありません。</div>'; return; }
   container.innerHTML = posts.map(p => {
     const dateStr = new Date(p.date).toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
-    // Support both old single image and new images array
     const imgs = p.images && p.images.length ? p.images : (p.image ? [p.image] : []);
     let imgHtml = '';
-    if (imgs.length === 1) {
-      imgHtml = '<img class="blog-card-img" src="' + imgs[0] + '" alt="" loading="lazy">';
-    } else if (imgs.length > 1) {
-      const galleryId = 'gallery-' + p.id;
-      imgHtml = '<div class="blog-card-gallery" id="' + galleryId + '" onscroll="updateDots(\'' + galleryId + '\')">' +
+    if (imgs.length === 1) { imgHtml = '<img class="blog-card-img" src="' + imgs[0] + '" alt="" loading="lazy">'; }
+    else if (imgs.length > 1) {
+      const gid = 'gallery-' + p.id;
+      imgHtml = '<div class="blog-card-gallery" id="' + gid + '" onscroll="updateDots(\'' + gid + '\')">' +
         imgs.map(src => '<img src="' + src + '" alt="" loading="lazy">').join('') +
         '</div><div class="blog-card-gallery-dots" id="dots-' + p.id + '">' +
         imgs.map((_, i) => '<span class="' + (i === 0 ? 'active' : '') + '"></span>').join('') + '</div>';
     }
     const adminBtns = blogAuthed ? '<div class="blog-card-actions"><button onclick="editPost(\'' + p.id + '\')">編集</button><button class="btn-delete" onclick="deletePost(\'' + p.id + '\')">削除</button></div>' : '';
-    return '<div class="blog-card">' + imgHtml +
-      '<div class="blog-card-body">' +
-        '<div class="blog-card-date">' + dateStr + '</div>' +
-        '<div class="blog-card-title">' + escHtml(p.title) + '</div>' +
-        '<div class="blog-card-content truncated" id="content-' + p.id + '">' + escHtml(p.content) + '</div>' +
-        '<button class="blog-card-readmore" onclick="toggleReadMore(this, \'' + p.id + '\')">もっと読む</button>' +
-        adminBtns +
-      '</div></div>';
+    return '<div class="blog-card">' + imgHtml + '<div class="blog-card-body"><div class="blog-card-date">' + dateStr + '</div><div class="blog-card-title">' + escHtml(p.title) + '</div><div class="blog-card-content truncated" id="content-' + p.id + '">' + escHtml(p.content) + '</div><button class="blog-card-readmore" onclick="toggleReadMore(this, \'' + p.id + '\')">もっと読む</button>' + adminBtns + '</div></div>';
   }).join('');
 }
-
-function toggleReadMore(btn, id) {
-  const el = document.getElementById('content-' + id);
-  const isTrunc = el.classList.contains('truncated');
-  el.classList.toggle('truncated');
-  btn.textContent = isTrunc ? '閉じる' : 'もっと読む';
-}
-
-function updateDots(galleryId) {
-  const gallery = document.getElementById(galleryId);
-  if (!gallery) return;
-  const postId = galleryId.replace('gallery-', '');
-  const dots = document.querySelectorAll('#dots-' + postId + ' span');
-  const scrollLeft = gallery.scrollLeft;
-  const itemW = gallery.offsetWidth;
-  const activeIdx = Math.round(scrollLeft / itemW);
-  dots.forEach((d, i) => d.classList.toggle('active', i === activeIdx));
-}
-
-function escHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
+function toggleReadMore(btn, id) { const el = document.getElementById('content-' + id); el.classList.toggle('truncated'); btn.textContent = el.classList.contains('truncated') ? 'もっと読む' : '閉じる'; }
+function updateDots(gid) { const g = document.getElementById(gid); if (!g) return; const pid = gid.replace('gallery-',''); const dots = document.querySelectorAll('#dots-' + pid + ' span'); const idx = Math.round(g.scrollLeft / g.offsetWidth); dots.forEach((d,i) => d.classList.toggle('active', i === idx)); }
+function escHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
 function openPostForm() {
-  editingId = null;
-  document.getElementById('blogFormOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-  if (blogAuthed) {
-    document.getElementById('blogPwGate').style.display = 'none';
-    document.getElementById('blogPostForm').style.display = 'block';
-    document.getElementById('blogFormTitle').textContent = '新しい記事を投稿';
-    resetForm();
-  } else {
-    document.getElementById('blogPwGate').style.display = 'block';
-    document.getElementById('blogPostForm').style.display = 'none';
-  }
+  editingId = null; document.getElementById('blogFormOverlay').classList.add('open'); document.body.style.overflow = 'hidden';
+  if (blogAuthed) { document.getElementById('blogPwGate').style.display = 'none'; document.getElementById('blogPostForm').style.display = 'block'; document.getElementById('blogFormTitle').textContent = '新しい記事を投稿'; resetForm(); }
+  else { document.getElementById('blogPwGate').style.display = 'block'; document.getElementById('blogPostForm').style.display = 'none'; }
 }
-function closePostForm() {
-  document.getElementById('blogFormOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-  resetForm();
-}
-
+function closePostForm() { document.getElementById('blogFormOverlay').classList.remove('open'); document.body.style.overflow = ''; resetForm(); }
 function checkBlogPw() {
   const input = document.getElementById('blogPwInput');
-  if (input.value === BLOG_PW) {
-    blogAuthed = true;
-    document.getElementById('blogPwGate').style.display = 'none';
-    document.getElementById('blogPostForm').style.display = 'block';
-    document.getElementById('blogPwError').style.display = 'none';
-    input.value = '';
-    renderPosts();
-  } else {
-    document.getElementById('blogPwError').style.display = 'block';
-  }
+  if (input.value === BLOG_PW) { blogAuthed = true; document.getElementById('blogPwGate').style.display = 'none'; document.getElementById('blogPostForm').style.display = 'block'; document.getElementById('blogPwError').style.display = 'none'; input.value = ''; renderPosts(); }
+  else { document.getElementById('blogPwError').style.display = 'block'; }
 }
 document.getElementById('blogPwInput').addEventListener('keydown', e => { if (e.key === 'Enter') checkBlogPw(); });
-
-// Image compression
-let pendingImages = []; // array of base64 strings
-
+let pendingImages = [];
 function compressImage(file, maxW, quality) {
-  return new Promise((resolve) => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = new Image();
-      img.onload = () => {
-        const canvas = document.createElement('canvas');
-        let w = img.width, h = img.height;
-        if (w > maxW) { h = (maxW / w) * h; w = maxW; }
-        canvas.width = w; canvas.height = h;
-        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-        resolve(canvas.toDataURL('image/jpeg', quality));
-      };
-      img.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  });
+  return new Promise(resolve => { const reader = new FileReader(); reader.onload = e => { const img = new Image(); img.onload = () => { const canvas = document.createElement('canvas'); let w = img.width, h = img.height; if (w > maxW) { h = (maxW / w) * h; w = maxW; } canvas.width = w; canvas.height = h; canvas.getContext('2d').drawImage(img, 0, 0, w, h); resolve(canvas.toDataURL('image/jpeg', quality)); }; img.src = e.target.result; }; reader.readAsDataURL(file); });
 }
-
 async function previewImages(input) {
-  const files = Array.from(input.files);
-  const remaining = 6 - pendingImages.length;
+  const files = Array.from(input.files); const remaining = 6 - pendingImages.length;
   if (remaining <= 0) { showToast('画像は最大6枚です'); return; }
-  const toAdd = files.slice(0, remaining);
-  for (const file of toAdd) {
-    const dataUrl = await compressImage(file, 800, 0.65);
-    pendingImages.push(dataUrl);
-  }
+  for (const file of files.slice(0, remaining)) { pendingImages.push(await compressImage(file, 800, 0.65)); }
   if (files.length > remaining) showToast('画像は最大6枚です');
-  input.value = '';
-  renderImagePreviews();
+  input.value = ''; renderImagePreviews();
 }
-
 function renderImagePreviews() {
-  const container = document.getElementById('imgPreviews');
-  const placeholder = document.getElementById('imgPlaceholder');
-  container.innerHTML = pendingImages.map((src, i) =>
-    '<div class="img-thumb"><img src="' + src + '"><button class="img-remove" onclick="removeImage(' + i + ')">×</button></div>'
-  ).join('');
-  placeholder.textContent = pendingImages.length >= 6 ? '最大6枚です' : 'クリックまたはドラッグで画像を追加';
+  const c = document.getElementById('imgPreviews'); const p = document.getElementById('imgPlaceholder');
+  c.innerHTML = pendingImages.map((src, i) => '<div class="img-thumb"><img src="' + src + '"><button class="img-remove" onclick="removeImage(' + i + ')">×</button></div>').join('');
+  p.textContent = pendingImages.length >= 6 ? '最大6枚です' : 'クリックまたはドラッグで画像を追加';
 }
-
-function removeImage(idx) {
-  pendingImages.splice(idx, 1);
-  renderImagePreviews();
-}
-
+function removeImage(idx) { pendingImages.splice(idx, 1); renderImagePreviews(); }
 function resetForm() {
   document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
-  document.getElementById('postTitle').value = '';
-  document.getElementById('postContent').value = '';
-  document.getElementById('postImage').value = '';
-  document.getElementById('imgPreviews').innerHTML = '';
-  document.getElementById('imgPlaceholder').textContent = 'クリックまたはドラッグで画像を選択';
-  pendingImages = [];
-  editingId = null;
+  document.getElementById('postTitle').value = ''; document.getElementById('postContent').value = '';
+  document.getElementById('postImage').value = ''; document.getElementById('imgPreviews').innerHTML = '';
+  document.getElementById('imgPlaceholder').textContent = 'クリックまたはドラッグで画像を選択'; pendingImages = []; editingId = null;
 }
-
 async function submitPost() {
-  const date = document.getElementById('postDate').value;
-  const title = document.getElementById('postTitle').value.trim();
-  const content = document.getElementById('postContent').value.trim();
-  const images = [...pendingImages];
-
-  if (!date || !title || !content) {
-    showToast('日付・タイトル・内容は必須です');
-    return;
-  }
-
-  const submitBtn = document.querySelector('.form-submit');
-  submitBtn.textContent = '送信中...';
-  submitBtn.disabled = true;
-
-  try {
-    if (editingId) {
-      await postsRef.doc(editingId).update({ date, title, content, images });
-      showToast('記事を更新しました');
-    } else {
-      await postsRef.add({ date, title, content, images, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
-      showToast('記事を投稿しました');
-    }
-    closePostForm();
-    renderPosts();
-  } catch (e) {
-    console.error(e);
-    showToast('エラーが発生しました');
-  } finally {
-    submitBtn.textContent = '投稿する';
-    submitBtn.disabled = false;
-  }
+  const date = document.getElementById('postDate').value, title = document.getElementById('postTitle').value.trim(), content = document.getElementById('postContent').value.trim(), images = [...pendingImages];
+  if (!date || !title || !content) { showToast('日付・タイトル・内容は必須です'); return; }
+  const btn = document.querySelector('.form-submit'); btn.textContent = '送信中...'; btn.disabled = true;
+  try { if (editingId) { await postsRef.doc(editingId).update({ date, title, content, images }); showToast('記事を更新しました'); } else { await postsRef.add({ date, title, content, images, createdAt: firebase.firestore.FieldValue.serverTimestamp() }); showToast('記事を投稿しました'); } closePostForm(); renderPosts(); }
+  catch (e) { console.error(e); showToast('エラーが発生しました'); }
+  finally { btn.textContent = '投稿する'; btn.disabled = false; }
 }
-
 async function editPost(id) {
-  try {
-    const doc = await postsRef.doc(id).get();
-    if (!doc.exists) return;
-    const post = doc.data();
-    editingId = id;
-    openPostForm();
-    document.getElementById('blogFormTitle').textContent = '記事を編集';
-    document.getElementById('postDate').value = post.date;
-    document.getElementById('postTitle').value = post.title;
-    document.getElementById('postContent').value = post.content;
-    // Support both old single image and new images array
-    if (post.images && post.images.length) {
-      pendingImages = [...post.images];
-    } else if (post.image) {
-      pendingImages = [post.image];
-    }
-    renderImagePreviews();
-  } catch (e) { console.error(e); }
+  try { const doc = await postsRef.doc(id).get(); if (!doc.exists) return; const post = doc.data(); editingId = id; openPostForm();
+  document.getElementById('blogFormTitle').textContent = '記事を編集'; document.getElementById('postDate').value = post.date; document.getElementById('postTitle').value = post.title; document.getElementById('postContent').value = post.content;
+  if (post.images && post.images.length) { pendingImages = [...post.images]; } else if (post.image) { pendingImages = [post.image]; } renderImagePreviews(); } catch (e) { console.error(e); }
 }
-
 async function deletePost(id) {
   if (!confirm('この記事を削除しますか？')) return;
-  try {
-    await postsRef.doc(id).delete();
-    renderPosts();
-    showToast('記事を削除しました');
-  } catch (e) { console.error(e); showToast('削除に失敗しました'); }
+  try { await postsRef.doc(id).delete(); renderPosts(); showToast('記事を削除しました'); } catch (e) { console.error(e); showToast('削除に失敗しました'); }
 }
-
-function showToast(msg) {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2500);
-}
-
+function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
 document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
-
-document.getElementById('blogFormOverlay').addEventListener('click', e => {
-  if (e.target === e.currentTarget) closePostForm();
-});
+document.getElementById('blogFormOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closePostForm(); });
 </script>
 </body>
 </html>
