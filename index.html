@@ -237,9 +237,35 @@ img { max-width: 100%; display: block; }
   .footer-inner { flex-direction: column; gap: 12px; }
   .badges-row { flex-direction: column; align-items: flex-start; gap: 20px; width: fit-content; margin: 0 auto; }
 }
+
+/* ===== Visual Enhancements ===== */
+
+/* Scroll Progress */
+.scroll-progress { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--green-light), var(--green-main)); z-index: 200; width: 0; }
+
+/* Back to Top */
+.back-top { position: fixed; bottom: 32px; right: 32px; width: 48px; height: 48px; background: var(--green-deep); color: var(--white); border: none; border-radius: 50%; cursor: pointer; z-index: 100; display: flex; align-items: center; justify-content: center; opacity: 0; transform: translateY(20px); transition: all .35s ease; box-shadow: 0 4px 16px rgba(27,67,50,.25); }
+.back-top.show { opacity: 1; transform: translateY(0); }
+.back-top:hover { background: var(--green-main); transform: translateY(-3px); box-shadow: 0 6px 24px rgba(27,67,50,.35); }
+
+/* Accordion Hover */
+.service-accordion { transition: border-color .3s, box-shadow .3s, transform .2s; }
+.service-accordion:hover { transform: translateX(4px); }
+
+/* Button Shine */
+.btn-primary, .btn-white { position: relative; overflow: hidden; }
+.btn-primary::before, .btn-white::before { content: ''; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent); transform: skewX(-20deg); transition: left .6s ease; pointer-events: none; }
+.btn-primary:hover::before, .btn-white:hover::before { left: 130%; }
+
+/* Contact Card Glow */
+.contact-card { position: relative; overflow: hidden; }
+.contact-card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(82,183,136,.12), transparent 70%); opacity: 0; transition: opacity .4s; pointer-events: none; }
+.contact-card:hover::after { opacity: 1; }
+
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 <header class="header" id="header">
   <div class="container header-inner">
     <a href="#" class="logo">
@@ -554,6 +580,9 @@ img { max-width: 100%; display: block; }
   </div>
 </div>
 <div class="toast" id="toast"></div>
+<button class="back-top" id="backTop" aria-label="ページトップへ">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-copy">&copy; 2026 ヤノクリーンサービス</div>
@@ -739,6 +768,16 @@ async function deletePost(id) {
 function showToast(msg) { const t = document.getElementById('toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
 document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
 document.getElementById('blogFormOverlay').addEventListener('click', e => { if (e.target === e.currentTarget) closePostForm(); });
+
+// Scroll Progress & Back to Top
+const scrollProg = document.getElementById('scrollProgress');
+const backTopBtn = document.getElementById('backTop');
+backTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+window.addEventListener('scroll', () => {
+  const s = window.scrollY, h = document.documentElement.scrollHeight - window.innerHeight;
+  if (h > 0) scrollProg.style.width = (s / h * 100) + '%';
+  backTopBtn.classList.toggle('show', s > 500);
+}, { passive: true });
 </script>
 </body>
 </html>
